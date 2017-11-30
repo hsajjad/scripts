@@ -41,6 +41,6 @@ if __name__ == "__main__":
 		freq = int(sys.argv[2])
 	else:
 		freq = 3
-	print ("UNK replacement frequency is: %d" % freq)
+	print ("UNK replacement frequency is: %d" % freq, file=sys.stderr)
 	dict_vocab = file_process(text_file)
 	replace_with_unk(text_file, dict_vocab, freq)
