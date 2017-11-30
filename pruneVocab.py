@@ -37,5 +37,10 @@ def replace_with_unk(text_file, dict_vocab, freq_threshold):
 
 if __name__ == "__main__":
 	text_file = sys.argv[1] # vocab file is frequency space word
+	if len(sys.argv) == 3:
+		freq = int(sys.argv[2])
+	else:
+		freq = 3
+	print ("UNK replacement frequency is: %d" % freq)
 	dict_vocab = file_process(text_file)
-	replace_with_unk(text_file, dict_vocab, 5)
+	replace_with_unk(text_file, dict_vocab, freq)
