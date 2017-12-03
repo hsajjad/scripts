@@ -10,8 +10,11 @@ python normalize_Arabic.pl input_file output_file
 ```
 
 #### Prune Vocabulary
-Given a text file, calculate frequency of each word in it and replace the least frequent ones (3) with tag <unk>
+Given a text file, calculate frequency of each word in it and replace the least frequent ones (occurring <= 3) with tag <unk>
 ```
 python pruneVocab.py input_file > output
 ```
-
+You can also specify your own threshold value. Note that check on threshold value is inclusive of the threshold frequency
+```
+python pruneVocab.py input_file 10  > output
+```
