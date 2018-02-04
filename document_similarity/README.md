@@ -22,6 +22,7 @@ for doc_id in range(len(train)):
 
 import collections
 collections.Counter(predictions) # this mentions how many times the right document appear at index 0
+```
 
 You can modify the script for various options:
 ```
