@@ -1,4 +1,4 @@
-## Document Similarity Vector for Similar Document Retrieval Against a term
+## Document similarity vector for similar document retrieval against a term
 
 Train document similarity vector and use it to find similar documents or similar terms against a key word. To preprocess the data in the required format, see the end of this readme or check in the utils directory.
 
