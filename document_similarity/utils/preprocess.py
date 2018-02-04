@@ -11,8 +11,6 @@ import sys
 def combineDocs(d_path, o_file):
 
 	docLabels = []
-	#d_path = "/Users/hsajjad/Desktop/ted_data_conspeesh_formatted/data_stage_ted_001/"
-	#d_path = "/Users/hsajjad/Work/software/documentEmbed/tmp/"
 
 	docLabels = [f for f in listdir(d_path) if f.endswith('.txt')]
 
