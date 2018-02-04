@@ -30,7 +30,7 @@ model.most_similar('solar', topn=20) # find most similar words given a term
 word_vec = model['immigration'] # find most similar documents based on a term
 model.docvecs.most_similar([word_vec])
 
-# infer a vector based on several terms and find the closest word or document
+#infer a vector based on several terms and find the closest word or document
 inferred_vector = model.infer_vector(['solar', 'energy', 'panels', 'renewable'])
 model.most_similar([inferred_vector])
 
