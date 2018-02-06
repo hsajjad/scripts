@@ -3,7 +3,7 @@
 # output one single file concatenating all the input files
 
 # usage: python preprocess.py inputDir outputFile
-
+import os
 from os import listdir
 from os.path import isfile, join
 import sys
@@ -11,7 +11,7 @@ import sys
 def combineDocs(d_path, o_file):
 
 	docLabels = []
-
+	
 	docLabels = [f for f in listdir(d_path) if f.endswith('.txt')]
 
 	data = []
@@ -27,7 +27,7 @@ def combineDocs(d_path, o_file):
 
 
 if __name__ == "__main__":
-	d_path = sys.argv[1] # path to the directory to read files
+	d_path = os.path.join(sys.argv[1], '') # path to the directory to read files
 	o_file = sys.argv[2] # path and name of the outputfile
 	combineDocs(d_path, o_file)
 

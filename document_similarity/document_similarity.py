@@ -23,7 +23,7 @@ def read_corpus(fname):
 def train_model(train):
     train = list(read_corpus(train))
     
-    model = Doc2Vec(size=30, window=10, min_count=1, workers=11,alpha=0.025, min_alpha=0.025)
+    model = Doc2Vec(size=300, window=10, min_count=1, workers=11,alpha=0.025, min_alpha=0.025)
     
     model.build_vocab(train) # build vocabulary
     model.train(train, total_examples=model.corpus_count, epochs=model.iter)
