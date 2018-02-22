@@ -1,6 +1,7 @@
 import sys
 import codecs
 import argparse
+import random
 
 def build_vocab(corpus):
 	dict_vocab={}
@@ -62,6 +63,7 @@ def norm_dict_to_corpus(corpus, dict_norm):
 						dict_norm_corpus[word] = [line_num] # this line contains the lexicon word
 	f.close()
 	return dict_norm_corpus
+
 
 
 if __name__ == "__main__":
