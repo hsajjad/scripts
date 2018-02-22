@@ -44,12 +44,12 @@ if __name__ == "__main__":
 
 	parser.add_argument('--corpus', type=str, help='corpus file')
 	parser.add_argument('--norm_dictionary', type=str, help='normalized dictionary')
-	parser.add_argument('--threshold', type=str, help='Percentage of words need to be replaced')
+	parser.add_argument('--threshold', type=float, help='Percentage of words that need to be replaced')
 	params = parser.parse_args()
 
 	corpus = params.corpus
 	norm_dictionary = params.norm_dictionary
-	threshold = float(params.threshold)
+	threshold = params.threshold
 
 	dict_norm = read_normalized_dict(norm_dictionary)
 
