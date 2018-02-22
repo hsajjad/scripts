@@ -3,6 +3,8 @@ import codecs
 import argparse
 import random
 
+## python noising_random.py --corpus input_corpus --norm_dictionary normalization_dict --threshold 0.
+
 def read_normalized_dict(norm_dict):
 	dict_norm = {}
 	with codecs.open(norm_dict, 'r', 'utf-8') as f:
@@ -22,21 +24,18 @@ def norm_dict_to_corpus(corpus, dict_norm, threshold):
 	with codecs.open(corpus, 'r', 'utf-8') as f:
 		for line in f:
 			modified_line = []
-			print (line.strip())
-			word_arr = line.strip().lower().split()
+			word_arr = line.strip('\n').lower().split()
 			for word in word_arr:
+			#	print (word)
 				if word in dict_norm:
-					print (word)
 					if threshold > random.random(): # between 0 and 1
 						# choose random option from the normalized dictionary
 						random_replacement = random.randint(0,len(dict_norm[word])-1)
 						dict_options = dict_norm[word]
 						word = dict_options[random_replacement]
-					print (word)
 				modified_line.append(word)
-			print (" ".join(modified_line) + "\n")
+			print (" ".join(modified_line))
 	f.close()
-
 
 
 if __name__ == "__main__":
