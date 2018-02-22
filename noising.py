@@ -46,6 +46,24 @@ def save_vocab(dict_vocab, corpus):
 	f.close()
 
 
+def norm_dict_to_corpus(corpus, dict_norm):
+	# save the line numbers that have the dictionary word
+	dict_norm_corpus = {}
+	line_num = 0
+	with codecs.open(corpus, 'r', 'utf-8') as f:
+		for line in f:
+			line_num += 1
+			word_arr = line.strip().lower().split()
+			for word in word_arr:
+				if word in dict_norm:
+					if word in dict_norm_corpus:
+						dict_norm_corpus[word].append(line_num)
+					else:
+						dict_norm_corpus[word] = [line_num] # this line contains the lexicon word
+	f.close()
+	return dict_norm_corpus
+
+
 if __name__ == "__main__":
 
 	parser = argparse.ArgumentParser(description='Add spelling errors in the corpus')
@@ -68,3 +86,7 @@ if __name__ == "__main__":
 		print ("Save vocabulary file as " + corpus + ".vocab")
 	else:
 		dict_vocab = load_vocab(params.corpus_vocab)
+
+	dict_norm_corpus = norm_dict_to_corpus(params.corpus, dict_norm)
+	print (dict_norm_corpus)
+
