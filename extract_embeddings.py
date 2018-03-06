@@ -37,6 +37,7 @@ if __name__ == "__main__":
 
         parser.add_argument('--text_file', type=str, help='Text file to get embedding of words')
         parser.add_argument('--embedding', type=str, help='Load embedding file')
+	parser.add_argument('--out_file', type=str, help='output file')
 
         params = parser.parse_args()
 
@@ -47,6 +48,9 @@ if __name__ == "__main__":
 
         # load model
         vecs = loadEmbeddings(embed_file)
-        out_file = input_file + ".embed"
+	out_file = params.out_file
+	if out_file == None:
+        	out_file = input_file + ".embed"
+	
         print ("Output file: " + out_file)
         word_file_process(input_file, out_file, vecs)
