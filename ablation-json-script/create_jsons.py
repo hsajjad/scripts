@@ -52,7 +52,7 @@ def write_json(outputDir, order):
 			if n < 500:
 				mask[layer]["0"]["output"].append(n)
 			else:
-				mask[layer]["1"]["output"].append(n)
+				mask[layer]["1"]["output"].append(n-500) # indexing will be from 0
 
 		output_file = outputDir + "/" + str(i+NUM) + ".json"
 		with open(output_file, 'w') as outf:
