@@ -2,7 +2,7 @@ import codecs
 import preprocessor as p
 import argparse
 
-p.set_options(p.OPT.URL, p.OPT.EMOJI, p.OPT.HASHTAG, p.OPT.SMILEY, p.OPT.MENTION) # only convert urls and emoji to unique tags
+p.set_options(p.OPT.URL, p.OPT.EMOJI, p.OPT.SMILEY, p.OPT.MENTION) # only convert urls and emoji to unique tags
 
 def process(corpus, output):
 	fout = codecs.open(output, 'w', 'utf-8')
@@ -11,7 +11,16 @@ def process(corpus, output):
 		for line in f:
 			line = line.strip()
 			line = p.tokenize(line)
-			fout.write(line + "\n")
+
+			lineArr = line.split()
+			outArr = []
+			for word in lineArr:
+				if word.startwith("#") and word.endswith("#"):
+					word = word[1:-1]
+					outArr.append(word)
+
+			lineOut = " " + join(outArr) 								
+			fout.write(lineOut + "\n")
 
 	fout.close()
 	f.close()
