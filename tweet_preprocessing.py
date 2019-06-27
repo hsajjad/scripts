@@ -11,16 +11,7 @@ def process(corpus, output):
 		for line in f:
 			line = line.strip()
 			line = p.tokenize(line)
-
-			lineArr = line.split()
-			outArr = []
-			for word in lineArr:
-				if word.startwith("#") and word.endswith("#"):
-					word = word[1:-1]
-					outArr.append(word)
-
-			lineOut = " " + join(outArr) 								
-			fout.write(lineOut + "\n")
+			fout.write(line + "\n")
 
 	fout.close()
 	f.close()
